@@ -3,7 +3,7 @@ import { createTodo, deleteTodo, getTodo, getTodos, updateTodo } from '../contro
 const router = express.Router();
 
 
-router.post('/',createTodo) //to create a new todo
+router.post('/',createTodo) //to create a new todo document
 router.get('/',getTodos) // to get all todos
 router.get('/:id',getTodo) //to get a single todo
 router.put('/:id',updateTodo) //to update a todo
