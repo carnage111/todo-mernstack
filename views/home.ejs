@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <div class="input_container">
+        <form action="/api/v1/todo" method="post">
+            <input type="text" name="name">
+            <button type="submit">Create</button>
+        </form>
+    </div>
+    <div class="todo_list">
+        <h2>List of todos</h2>
+        <table>
+            <tr>
+                <th>Todo</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            <% todo.forEach(todos => { %>
+                <tr>
+                    <td><%= todos.name %></td>
+                    <td><a href="/api/v1/todo/<%= todo._id%>">Update</a></td>
+                    <td>Delete</td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+</html>

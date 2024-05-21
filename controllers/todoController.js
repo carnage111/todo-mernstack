@@ -6,12 +6,13 @@ import Todo from "../models/Todo.js"
 let createTodo = async (req,res)=>{
     try{
         let todo = await Todo.create(req.body)
-
         //or we can do the following to create a new todo and save it
         //let todo = new Todo(req.body)
         //await todo.save()
-
-        res.status(201).json(todo)
+        
+        res.redirect("/api/v1/todo")
+        
+        // res.status(201).json(todo)
         // res.send("done creating a task and added it into the collection")    
     }catch(error){
         res.status(400).json({
@@ -26,7 +27,10 @@ let createTodo = async (req,res)=>{
 let getTodos = async (req,res)=>{
     try{
         let todo = await Todo.find()
-        res.status(200).json(todo)
+        res.render("home",{
+            todo
+        })
+        // res.status(200).json(todo)
     } catch(error){
         res.status(400).json({
             message: error.message,
