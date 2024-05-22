@@ -14,6 +14,8 @@ let createTodo = async (req,res)=>{
         
         // res.status(201).json(todo)
         // res.send("done creating a task and added it into the collection")    
+        
+        
     }catch(error){
         res.status(400).json({
             message: error.message,
@@ -21,33 +23,34 @@ let createTodo = async (req,res)=>{
     }   
 }
 
-//@Fetch/get all Todos
-//@GET
-//@path: /api/v1/todo
-let getTodos = async (req,res)=>{
-    try{
-        let todo = await Todo.find()
-        res.render("home",{
-            todo
-        })
-        // res.status(200).json(todo)
-    } catch(error){
+//fetch or get all todos
+//get method
+//path /api/v1/todo
+// In your controller where you render the home view
+let getTodos = async (req, res) => {
+    try {
+        let todos = await Todo.find();
+        // Pass the todos array to the home view
+        res.render('home', {todos}); // Or simply res.render('home', { todos });
+    } catch (error) {
         res.status(400).json({
-            message: error.message,
-        })
+            message: error.message
+        });
     }
 }
 
 
-//@Fetch/get a todo
-//@GET
-//@path: /api/v1/todo/:id
+//fetch or get a single todo
+//get method
+//path: /api/v1/todo/:id
 let getTodo = async (req,res)=>{
-    let id = req.params.id;
+    let todoID = await req.params.id;
     try{
-        let todo = await Todo.findById(id)
-        res.status(200).json(todo)
-    } catch(error){
+        let todo = await Todo.findById(todoID)
+        // res.status(200).json(todo)
+        res.render('update', {todo})
+    }
+    catch(error){
         res.status(400).json({
             message: error.message
         })
@@ -61,8 +64,9 @@ let getTodo = async (req,res)=>{
 let updateTodo = async (req,res)=>{
     let id = req.params.id;
     try{
-        let todo = await Todo.findByIdAndUpdate(id, req.body, {new:true}) //here {new:true} is used to return the updated todo rather than the old one
-        res.status(200).json(todo)
+        // let todo = await Todo.findByIdAndUpdate(id, req.body, {new:true}) //here {new:true} is used to return the updated todo rather than the old one
+        await Todo.findByIdAndUpdate(id, req.body) //here {new:true} is used to return the updated todo rather than the old one
+        res.redirect('/api/v1/todo')
     } catch(error){
         res.status(400).json({
             message: error.message

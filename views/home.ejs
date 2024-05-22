@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="input_container">
+        <h1>Todos</h1>
         <form action="/api/v1/todo" method="post">
             <input type="text" name="name">
             <button type="submit">Create</button>
@@ -20,14 +22,13 @@
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
-
-            <% todo.forEach(todos => { %>
+            <% todos.forEach(todo => { %>
                 <tr>
-                    <td><%= todos.name %></td>
-                    <td><a href="/api/v1/todo/<%= todo._id%>">Update</a></td>
-                    <td>Delete</td>
+                    <td><%= todo.name %></td>
+                    <td><a href="/api/v1/todo/<%= todo._id %>">Update</a></td>
+                    <td>delete</td>
                 </tr>
-            <% }) %>
+            <% }); %>
         </table>
     </div>
 </body>

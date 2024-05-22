@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Update Todo</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="input_container">
-        <form action="/api/v1/todo/:<%=todo._id%>">
-            <input type="text" name="name">
-            <input type="text" value="<%=todo.name%>">Update</input>
+        <h1>Update Todo</h1>
+        <form action="/api/v1/todo/<%= todo._id %>?_method=PUT" method="post">
+            <input type="text" name="name" value="<%= todo.name %>" placeholder="Enter new todo name">
+            <button type="submit">Update</button>
         </form>
     </div>
 </body>
