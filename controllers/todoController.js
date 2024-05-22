@@ -81,10 +81,11 @@ let deleteTodo = async (req,res)=>{
     let id = req.params.id;
     try{
         let todo = await Todo.findByIdAndDelete(id)
-        res.status(200).json({
-            message:"A todo has been deleted.",
-            deletedTodo:todo,
-        })
+        // res.status(200).json({
+        //     message:"A todo has been deleted.",
+        //     deletedTodo:todo,
+        // })
+        res.redirect('/api/v1/todo')
     } catch(error){
         res.status(400).json({
             message: error.message

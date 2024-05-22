@@ -26,7 +26,12 @@
                 <tr>
                     <td><%= todo.name %></td>
                     <td><a href="/api/v1/todo/<%= todo._id %>">Update</a></td>
-                    <td>delete</td>
+                    <td>
+                        <form action="/api/v1/todo/<%= todo._id %>?_method=DELETE" method="post">
+                            <!-- <input type="text" name="name" value="<%= todo.name %>" placeholder="Enter new todo name"> -->
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             <% }); %>
         </table>
