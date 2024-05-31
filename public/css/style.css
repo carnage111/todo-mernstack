@@ -116,6 +116,12 @@ tr:nth-child(even) {
     box-shadow: 0 9px 15px rgba(0, 0, 0, 1);
 }
 
+.register_container h1, .login_container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFFF00;
+}
+
 .register_container form, .login_container form {
     display: flex;
     flex-direction: column;
