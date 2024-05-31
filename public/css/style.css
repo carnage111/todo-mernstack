@@ -105,3 +105,55 @@ tr:nth-child(even) {
     background-color: #FFFF00;
     color: #333;
 }
+
+/* Register and Login specific styles */
+.register_container, .login_container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #112e51;
+    box-shadow: 0 9px 15px rgba(0, 0, 0, 1);
+}
+
+.register_container form, .login_container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #FFFF00;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+
+button[type="submit"], button[type="reset"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover, button[type="reset"]:hover {
+    background-color: black;
+    transition: 0.5s;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: space-between;
+}
