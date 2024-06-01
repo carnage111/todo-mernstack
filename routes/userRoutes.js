@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { register, login, getRegisterForm, getLoginForm } from "../controllers/userController.js";
+import { register, login, getRegisterForm, getLoginForm, logout } from "../controllers/userController.js";
 
 const userRoutes = Router();
 
@@ -14,5 +14,9 @@ userRoutes.get("/login", getLoginForm);
 
 // Handle login form submission
 userRoutes.post("/login", login);
+
+
+//handling logout
+userRoutes.get('/logout',logout)
 
 export default userRoutes;

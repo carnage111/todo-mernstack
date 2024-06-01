@@ -9,9 +9,13 @@ const convertTimestamp = (timestamp) => {
 
 export const auth = async (req,res, next)=>{
     try{
-        let token = req.headers?.authorization?.split(" ")[1] //here ? is used to check if the headers or authorization is present or not/ this is called optional chaining, if the headers or authorization is not present then it will not throw an error, rather it will return undefined
+        // let token = req.headers?.authorization?.split(" ")[1] //here ? is used to check if the headers or authorization is present or not/ this is called optional chaining, if the headers or authorization is not present then it will not throw an error, rather it will return undefined
         // console.log(req.headers?.authorization?.split(" "));
         // console.log(token);
+
+        let token = req.cookies?.jwt
+
+
         if(!token){
             return res.status(401).json({
                 message: "You're not logged in!! Please login/Register!"
@@ -30,7 +34,9 @@ export const auth = async (req,res, next)=>{
 
 
         let userId = decodedToken.id
-        let existingUser = User.findById(userId)
+        
+        let existingUser = await User.findById(userId)
+
         if(!existingUser){
             return res.status(401).json({
                 message: "User does not exist with this id!! Please register yourself!"
@@ -38,10 +44,13 @@ export const auth = async (req,res, next)=>{
         }
 
         req.user = existingUser._id
+        console.log(existingUser._id);
 
         next()
     }
     catch(error){
-        console.log(error);
+        res.status(400).json({
+            message: error.message
+        })
     }
 }

@@ -42,6 +42,8 @@ userSchema.pre("save",async function(next){
 })
 
 //methods to verify password
+//this method will be used to verify the password, it will take the password entered by the user and the password stored in the database and will return true if the password matches, otherwise false
+//bcrypt.compare() will compare the plaintext password entered by the user with the hashed password stored in the database, befoer comparing it will hash the plaintext password entered by the user and then compare it with the hashed password stored in the database, if the password matches it will return true, otherwise false
 userSchema.methods.verifyPassword=async function(pwd,pwdDB){
     return await bcrypt.compare(pwd,pwdDB)
 }

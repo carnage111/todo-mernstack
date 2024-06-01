@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+    <nav>
+        <ul>
+            <li>Logo</li>
+            <li>Welcome <%= name %></li>
+            <li><a href="/api/v1/user/logout">Logout</a></li>
+        </ul>
+    </nav> 
+
     <div class="input_container">
         <h1>Update Todo</h1>
         <form action="/api/v1/todo/<%= todo._id %>?_method=PUT" method="post">

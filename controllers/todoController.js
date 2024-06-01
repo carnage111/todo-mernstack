@@ -1,4 +1,5 @@
 import Todo from "../models/Todo.js"
+import User from "../models/User.js"
 
 //@Create a Todo
 //@POST
@@ -31,7 +32,8 @@ let getTodos = async (req, res) => {
     try {
         let todos = await Todo.find();
         // Pass the todos array to the home view
-        res.render('home', {todos}); // Or simply res.render('home', { todos });
+        const {name} = await User.findById(req.user) //here we are getting the req.user from auth, which will give the id, we use this id to find the users name and pass it while rendering home.ejs
+        res.render('home', {todos,name}); // Or simply res.render('home', { todos });
     } catch (error) {
         res.status(400).json({
             message: error.message
@@ -48,7 +50,8 @@ let getTodo = async (req,res)=>{
     try{
         let todo = await Todo.findById(todoID)
         // res.status(200).json(todo)
-        res.render('update', {todo})
+        const {name} = await User.findById(req.user)
+        res.render('update', {todo,name})
     }
     catch(error){
         res.status(400).json({
