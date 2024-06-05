@@ -19,6 +19,8 @@ app.set("views","./views")
 app.use(methodOverride('_method'))
 
 app.use(express.urlencoded({extended:true}))
+
+
 app.use(express.json())
 
 //to serve/render static files

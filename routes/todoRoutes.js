@@ -25,4 +25,5 @@ router.get('/:id',auth,getTodo) //to get a single todo
 router.put('/:id',auth,updateTodo) //to update a todo
 router.delete('/:id',auth,deleteTodo) //to delete a todo
 
+
 export default router; 

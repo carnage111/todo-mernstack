@@ -44,7 +44,7 @@ export const auth = async (req,res, next)=>{
         }
 
         req.user = existingUser._id
-        console.log(existingUser._id);
+        // console.log(existingUser._id);
 
         next()
     }
