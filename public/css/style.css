@@ -1,4 +1,4 @@
-/* general styles */
+/* General styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -7,7 +7,36 @@ body {
     color: #fff;
 }
 
-.input_container {
+nav {
+    background-color: #1c3b5a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.input_container, .register_container, .login_container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
@@ -16,36 +45,33 @@ body {
     box-shadow: 0 9px 15px rgba(0, 0, 0, 1);
 }
 
-
-
-
-
-h1,
-h2 {
+h1, h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #FFFF00;
+    color: #ffcc00;
 }
 
-/* shared styles (applicable to both home and update) */
-.input_container form {
+form {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center;
+    flex-direction: column;
+    gap: 15px;
 }
 
-input[type="text"] {
-    flex: 1;
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    max-width: 500px;  /* Added a max-width */
     padding: 10px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     background-color: #fff;
     color: #333;
+    margin: 0 auto; /* Center the input fields */
 }
 
-button[type="submit"] {
+button[type="submit"], button[type="reset"] {
+    width: fit-content;  /* Button width will adjust to its content */
+    align-self: center;  /* Center the buttons */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -56,12 +82,12 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: black;
-    transition: 0.5s;
+button[type="submit"]:hover, button[type="reset"]:hover {
+    background-color: #ffcc00;
+    color: #333;
+    transition: 0.3s;
 }
 
-/* home page specific styles */
 .todo_list {
     margin: 40px auto;
     width: 80%;
@@ -77,8 +103,7 @@ table {
     background-color: #112e51;
 }
 
-th,
-td {
+th, td {
     padding: 15px;
     border-bottom: 1px solid #1d4e89;
 }
@@ -97,73 +122,16 @@ tr:nth-child(even) {
 }
 
 .todo_list a {
-    color: #FFFF00;
+    color: #ffcc00;
     text-decoration: none;
     padding: 5px 10px;
-    border: 1px solid #FFFF00;
+    border: 1px solid #ffcc00;
     border-radius: 3px;
     transition: background-color 0.3s ease;
 }
 
 .todo_list a:hover {
-    background-color: #FFFF00;
+    background-color: #ffcc00;
     color: #333;
 }
-
-/* Register and Login specific styles */
-.register_container, .login_container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #112e51;
-    box-shadow: 0 9px 15px rgba(0, 0, 0, 1);
-}
-
-.register_container h1, .login_container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #FFFF00;
-}
-
-.register_container form, .login_container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #FFFF00;
-}
-
-input[type="text"], input[type="email"], input[type="password"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #fff;
-    color: #333;
-}
-
-button[type="submit"], button[type="reset"] {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover, button[type="reset"]:hover {
-    background-color: black;
-    transition: 0.5s;
-}
-
-.btn_container {
-    display: flex;
-    justify-content: space-between;
-}
+    

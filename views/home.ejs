@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todos</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
     <nav>
         <ul>
-            <li>Logo</li>
-            <li>Welcome <%= name %></li>
+            <li><a>Logo</a></li>
+            <li>Welcome, <%= name %></li>
             <li><a href="/api/v1/user/logout">Logout</a></li>
+            <li><a href="/api/v1/user/register">Register</a></li>
+            <li><a href="/api/v1/user/login">Login</a></li>
         </ul>
     </nav>
 
@@ -23,6 +24,7 @@
             <button type="submit">Create</button>
         </form>
     </div>
+
     <div class="todo_list">
         <h2>List of todos</h2>
         <table>
@@ -37,7 +39,6 @@
                     <td><a href="/api/v1/todo/<%= todo._id %>">Update</a></td>
                     <td>
                         <form action="/api/v1/todo/<%= todo._id %>?_method=DELETE" method="post">
-                            <!-- <input type="text" name="name" value="<%= todo.name %>" placeholder="Enter new todo name"> -->
                             <button type="submit">Delete</button>
                         </form>
                     </td>

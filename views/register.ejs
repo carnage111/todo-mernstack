@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register user</title>
+    <title>Register User</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a>Logo</a></li>
+            <li><a href="/api/v1/user/register">Register</a></li>
+            <li><a href="/api/v1/user/login">Login</a></li>
+        </ul>
+    </nav>
     
     <div class="register_container">
         <h1>Register</h1>
@@ -14,7 +21,7 @@
             <label for="name">Name</label>
             <input type="text" name="name" id="name">
 
-            <label for="email">email</label>
+            <label for="email">Email</label>
             <input type="email" name="email" id="email">
 
             <label for="password">Password</label>
@@ -24,7 +31,7 @@
             <input type="password" name="confirmPassword" id="confirmPassword">
 
             <div class="btn_container">
-                <button type="submit">SignUp</button>
+                <button type="submit">Sign Up</button>
                 <button type="reset">Clear</button>
             </div>
         </form>
