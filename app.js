@@ -12,7 +12,7 @@ const app = express()
 
 app.use(cookieParser())
 
-//register the template engine
+//here we are setting the views directory
 app.set("views","./views")
 
 //to use the method-override
@@ -26,6 +26,7 @@ app.use(express.json())
 //to serve/render static files
 app.use(express.static('public'))
 
+//to set the view engine
 app.set("view engine", "ejs")
 
 
