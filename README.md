@@ -19,7 +19,7 @@ A basic Todo application built using the MERN stack (MongoDB, Express.js, React,
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/mern-todo-app.git
+   git clone https://github.com/carnage111/todo-mernstack.git
 
 2. Navigate to the project directory:
    ```sh
