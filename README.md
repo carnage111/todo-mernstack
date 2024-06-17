@@ -47,7 +47,7 @@ To run the development server:
         npm start (or yarn start)
         ```
 
-Navigate to `http://localhost:5000/api/v1/user` in your browser to see the application in action.
+Navigate to `http://localhost:5000/api/v1/user/register` in your browser to see the application in action.
 
 ## How to Use
 
