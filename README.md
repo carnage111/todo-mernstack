@@ -43,8 +43,9 @@ A basic Todo application built using the MERN stack (MongoDB, Express.js, React,
 ## Usage
 
 To run the development server:
-    ```sh
-    npm run dev
+      ```sh
+      npm run dev
+      ```
 
 Navigate to `http://localhost:5000/api/v1/user` in your browser to see the application in action.
 
